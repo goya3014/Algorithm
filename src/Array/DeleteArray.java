@@ -26,7 +26,31 @@ public class DeleteArray {
                 length--;
 
 
-        //2. 배열의 첫번째 요소 삭제
-        //3. 배열의 중간 요소 삭제
+        //2. 배열의 첫번째 요소 삭제(time complexity: O(N))
+        // Starting at index 1, we shift each element one position
+        // to the left.
+                for (int i = 1; i < length; i++) {
+                    // Shift each element one position to the left
+                    intArray[i - 1] = intArray[i];
+                }
+
+        // Note that it's important to reduce the length of the array by 1.
+        // Otherwise, we'll lose consistency of the size. This length
+        // variable is the only thing controlling where new elements might
+        // get added.
+                length--;
+
+
+        //3. 배열의 중간 요소 삭제(time complexity: O(N))
+        // Say we want to delete the element at index 1
+        for (int i = 2; i < length; i++) {
+            // Shift each element one position to the left
+            intArray[i - 1] = intArray[i];
+        }
+
+        // Again, the length needs to be consistent with the current
+        // state of the array.
+                length--;
+
     }
 }
